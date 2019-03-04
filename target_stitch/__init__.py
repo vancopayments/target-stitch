@@ -625,7 +625,7 @@ def main():
                         try:
                             data = str(data.decode('utf-8'))
                         except:
-                            LOGGER.exception()
+                            LOGGER.exception("An Exception has occurred.")
                             data = ''
                         delete_old_logs()
                         targetobj.handle_line(data)
