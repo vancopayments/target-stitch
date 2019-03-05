@@ -29,5 +29,5 @@ setup(name='target-stitch',
           [console_scripts]
           target-stitch=target_stitch:main
       ''',
-      packages=['target_stitch','singer-python/singer'],
+      packages=['target_stitch'],
 )
