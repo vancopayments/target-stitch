@@ -575,7 +575,7 @@ def main_impl(configarg_tuplelist=[]):
                                       args.max_batch_bytes,
                                       args.max_batch_records))
 
-    if not CONFIG_OBJ.get('shared_config', 'use_socket'):
+    if str(CONFIG_OBJ.get('shared_config', 'use_socket')).upper() == 'FALSE':
         # queue = Queue(args.max_batch_records)
         reader = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
         TargetStitch(handlers,
@@ -593,7 +593,7 @@ def main():
         # Call main function to gather parameters and handlers
         argumentobj, handlerlist = main_impl(CONFIG_OBJ.items('target_config'))
 
-        if CONFIG_OBJ.get('shared_config', 'use_socket'):
+        if str(CONFIG_OBJ.get('shared_config', 'use_socket')).upper() == 'TRUE':
             # Set up socket and SSLContext.
             socketobj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sslContext = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
