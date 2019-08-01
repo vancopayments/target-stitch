@@ -399,8 +399,7 @@ class TargetStitch:
 
         if self.state:
             line = json.dumps(self.state)
-            self.state_writer.write("{}\n".format(line))
-            self.state_writer.flush()
+            LOGGER.info("{}\n".format(line))
             self.state = None
             TIMINGS.log_timings()
 
